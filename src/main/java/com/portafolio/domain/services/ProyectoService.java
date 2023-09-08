@@ -44,4 +44,11 @@ public class ProyectoService {
             proyectoRepository.save(proyectoExistente);
         }
     }
+
+    public void deleteProyecto(Integer id, Proyecto proyecto) {
+        boolean existe = proyectoRepository.existsById(id);
+        if (existe) {
+            proyectoRepository.delete(proyecto);
+        }
+    }
 }

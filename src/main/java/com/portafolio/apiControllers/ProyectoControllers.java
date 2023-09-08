@@ -35,5 +35,10 @@ public class ProyectoControllers {
     public void updateProyecto(@PathVariable Integer id, @RequestBody Proyecto proyecto ){
         proyectoService.update(id, proyecto);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id, Proyecto proyecto){
+        proyectoService.deleteProyecto(id, proyecto);
+    }
 }
 
