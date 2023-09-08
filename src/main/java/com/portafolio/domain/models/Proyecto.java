@@ -5,81 +5,75 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Table
+public class Proyecto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String repositorio;
+    private String img;
+    private String colaboradores;
+    private String lenguajes;
+    private String tecnologias;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY) //Para hacer el id autoincremental
-private Integer id;
-private String repositorio;
-private String img;
-private String colaboradores;
-private String lenguajes;
-private String tecnologias;
+    public Proyecto() {
+    }
 
-public Proyecto() {
-        }
-
-public Proyecto(Integer id, String repositorio, String img, String colaboradores, String lenguajes, String tecnologias) {
+    public Proyecto(Integer id, String repositorio, String img, String colaboradores, String lenguajes, String tecnologias) {
         this.id = id;
         this.repositorio = repositorio;
         this.img = img;
         this.colaboradores = colaboradores;
         this.lenguajes = lenguajes;
         this.tecnologias = tecnologias;
-        }
+    }
 
-public Libro(String repositorio, String img, String colaboradores, String lenguajes, String tecnologias) {
-        this.repositorio = repositorio;
-        this.img = img;
-        this.colaboradores = colaboradores;
-        this.lenguajes = lenguajes;
-        this.tecnologias = tecnologias;
-        }
-
-public Integer getId() {
+    public Integer getId() {
         return id;
-        }
+    }
 
-public void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
-        }
+    }
 
-public String getRepositorio() {
+    public String getRepositorio() {
         return repositorio;
-        }
+    }
 
-public void setRepositorio(String repositorio) {
+    public void setRepositorio(String repositorio) {
         this.repositorio = repositorio;
-        }
+    }
 
-public String getimg () {
+    public String getImg() {
         return img;
-        }
+    }
 
-public void setImg (String img) {
-        this.img  = img;
-        }
+    public void setImg(String img) {
+        this.img = img;
+    }
 
-public String getcolaboradores() {
+    public String getColaboradores() {
         return colaboradores;
-        }
+    }
 
-public void setColaboradores(String colaboradores) {
+    public void setColaboradores(String colaboradores) {
         this.colaboradores = colaboradores;
+    }
 
-public String getlenguajes() {
+    public String getLenguajes() {
         return lenguajes;
-        }
+    }
 
-public void setLenguajes(String lenguajes) {
+    public void setLenguajes(String lenguajes) {
         this.lenguajes = lenguajes;
-        }
+    }
 
-public String gettecnologias() {
+    public String getTecnologias() {
         return tecnologias;
-        }
+    }
 
-public void setTecnologias(String tecnologias) {
+    public void setTecnologias(String tecnologias) {
         this.tecnologias = tecnologias;
-        }
-        }
-        }
+    }
+}
+
+
