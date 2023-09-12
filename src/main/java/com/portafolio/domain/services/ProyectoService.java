@@ -35,10 +35,11 @@ public class ProyectoService {
         if (proyectoByID.isPresent()) {
             Proyecto proyectoExistente = proyectoByID.get();
 
-            proyectoExistente.setRepositorio(proyecto.getRepositorio());
+            proyectoExistente.setNombre(proyecto.getNombre());
+            proyectoExistente.setDescripcion(proyecto.getDescripcion());
             proyectoExistente.setImg(proyecto.getImg());
+            proyectoExistente.setRepositorio(proyecto.getRepositorio());
             proyectoExistente.setColaboradores(proyecto.getColaboradores());
-            proyectoExistente.setLenguajes(proyecto.getLenguajes());
             proyectoExistente.setTecnologias(proyecto.getTecnologias());
 
             proyectoRepository.save(proyectoExistente);

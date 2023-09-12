@@ -9,21 +9,23 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String repositorio;
+    private String nombre;
+    private String descripcion;
     private String img;
+    private String repositorio;
     private String colaboradores;
-    private String lenguajes;
     private String tecnologias;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer id, String repositorio, String img, String colaboradores, String lenguajes, String tecnologias) {
+    public Proyecto(Integer id, String nombre, String descripcion, String img, String repositorio, String colaboradores, String tecnologias) {
         this.id = id;
-        this.repositorio = repositorio;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.img = img;
+        this.repositorio = repositorio;
         this.colaboradores = colaboradores;
-        this.lenguajes = lenguajes;
         this.tecnologias = tecnologias;
     }
 
@@ -35,12 +37,20 @@ public class Proyecto {
         this.id = id;
     }
 
-    public String getRepositorio() {
-        return repositorio;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setRepositorio(String repositorio) {
-        this.repositorio = repositorio;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getImg() {
@@ -51,20 +61,20 @@ public class Proyecto {
         this.img = img;
     }
 
+    public String getRepositorio() {
+        return repositorio;
+    }
+
+    public void setRepositorio(String repositorio) {
+        this.repositorio = repositorio;
+    }
+
     public String getColaboradores() {
         return colaboradores;
     }
 
     public void setColaboradores(String colaboradores) {
         this.colaboradores = colaboradores;
-    }
-
-    public String getLenguajes() {
-        return lenguajes;
-    }
-
-    public void setLenguajes(String lenguajes) {
-        this.lenguajes = lenguajes;
     }
 
     public String getTecnologias() {
