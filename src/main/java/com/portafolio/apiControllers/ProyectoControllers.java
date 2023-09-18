@@ -1,8 +1,8 @@
 package com.portafolio.apiControllers;
-
+import com.portafolio.Services.ProyectoService;
 import com.portafolio.domain.models.Proyecto;
-import com.portafolio.domain.services.ProyectoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +25,15 @@ public class ProyectoControllers {
     public List<Proyecto> getProyectoController(){
         return proyectoService.getProyecto();
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Proyecto> getProyectoById(@PathVariable Integer id) {
+        Proyecto proyecto = proyectoService.proyectoById(id);
+        if (proyecto != null ) {
+            return ResponseEntity.ok(proyecto);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     @PostMapping
     public void createProyecto(@RequestBody Proyecto proyecto){
         proyectoService.newProyecto(proyecto);
@@ -41,4 +49,3 @@ public class ProyectoControllers {
         proyectoService.deleteProyecto(id, proyecto);
     }
 }
-

@@ -1,4 +1,4 @@
-package com.portafolio.domain.services;
+package com.portafolio.Services;
 
 import com.portafolio.domain.models.Proyecto;
 import com.portafolio.infrarepositories.ProyectoRepository;
@@ -27,29 +27,31 @@ public class ProyectoService {
     public void newProyecto(Proyecto proyecto) {
         proyectoRepository.save(proyecto);
     }
-
+public Proyecto proyectoById(Integer id) {
+        Optional<Proyecto> proyectoById = proyectoRepository.findById(id);
+        return proyectoById.orElse(null);
+}
     public void update(Integer id, Proyecto proyecto) {
 
-        Optional<Proyecto> proyectoByID = (proyectoRepository.findById(id));
-
-        if (proyectoByID.isPresent()) {
-            Proyecto proyectoExistente = proyectoByID.get();
-
+            Proyecto proyectoExistente = proyectoById(id);
+            if (proyectoExistente == null) {
+                System.out.println("error");
+            }
             proyectoExistente.setNombre(proyecto.getNombre());
             proyectoExistente.setDescripcion(proyecto.getDescripcion());
             proyectoExistente.setImg(proyecto.getImg());
             proyectoExistente.setRepositorio(proyecto.getRepositorio());
             proyectoExistente.setColaboradores(proyecto.getColaboradores());
             proyectoExistente.setTecnologias(proyecto.getTecnologias());
-
             proyectoRepository.save(proyectoExistente);
+
         }
-    }
+
 
     public void deleteProyecto(Integer id, Proyecto proyecto) {
-        boolean existe = proyectoRepository.existsById(id);
-        if (existe) {
-            proyectoRepository.delete(proyecto);
+        boolean existed;
+        existed = proyectoRepository.existsById(id);
+        if (existed) { proyectoRepository.delete(proyecto);
         }
     }
 }
